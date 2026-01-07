@@ -12,6 +12,19 @@ from sklearn.metrics import confusion_matrix, classification_report
 import os
 
 
+def _ensure_save_dir(save_path):
+    """
+    Helper function to ensure the directory for save_path exists.
+    
+    Args:
+        save_path: Path where a file will be saved
+    """
+    if save_path:
+        save_dir = os.path.dirname(save_path)
+        if save_dir:  # Only create if there's actually a directory component
+            os.makedirs(save_dir, exist_ok=True)
+
+
 def plot_training_history(history, save_path=None):
     """
     Plot training and validation loss/accuracy curves.
@@ -43,7 +56,7 @@ def plot_training_history(history, save_path=None):
     plt.tight_layout()
     
     if save_path:
-        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        _ensure_save_dir(save_path)
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Figure saved to {save_path}")
     
@@ -70,7 +83,7 @@ def plot_confusion_matrix(y_true, y_pred, class_names=None, save_path=None):
     plt.title('Confusion Matrix')
     
     if save_path:
-        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        _ensure_save_dir(save_path)
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Figure saved to {save_path}")
     
@@ -106,7 +119,7 @@ def plot_model_comparison(results, metric='accuracy', save_path=None):
     plt.tight_layout()
     
     if save_path:
-        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        _ensure_save_dir(save_path)
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Figure saved to {save_path}")
     
@@ -146,7 +159,7 @@ def plot_data_distribution(data, labels, label_names=None, save_path=None):
     plt.tight_layout()
     
     if save_path:
-        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        _ensure_save_dir(save_path)
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         print(f"Figure saved to {save_path}")
     

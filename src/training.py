@@ -15,7 +15,7 @@ import os
 class Trainer:
     """Trainer class for multimodal learning models."""
     
-    def __init__(self, model, device='cuda', learning_rate=0.001):
+    def __init__(self, model, device='cuda', learning_rate=0.001, criterion=None):
         """
         Initialize the trainer.
         
@@ -23,11 +23,12 @@ class Trainer:
             model: Neural network model to train
             device: Device to train on ('cuda' or 'cpu')
             learning_rate: Learning rate for optimizer
+            criterion: Loss function (defaults to CrossEntropyLoss if None)
         """
         self.model = model.to(device)
         self.device = device
         self.optimizer = optim.Adam(model.parameters(), lr=learning_rate)
-        self.criterion = nn.CrossEntropyLoss()
+        self.criterion = criterion if criterion is not None else nn.CrossEntropyLoss()
         self.history = {'train_loss': [], 'val_loss': [], 'train_acc': [], 'val_acc': []}
     
     def train_epoch(self, dataloader):

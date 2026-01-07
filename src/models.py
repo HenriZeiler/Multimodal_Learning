@@ -5,19 +5,21 @@ This module contains various neural network architectures for multimodal fusion,
 including early fusion, late fusion, and hybrid approaches.
 """
 
+from abc import ABC, abstractmethod
 import torch
 import torch.nn as nn
 
 
-class MultimodalModel(nn.Module):
+class MultimodalModel(nn.Module, ABC):
     """Base class for multimodal learning models."""
     
     def __init__(self):
         super(MultimodalModel, self).__init__()
     
+    @abstractmethod
     def forward(self, x):
         """Forward pass through the model."""
-        raise NotImplementedError("Subclasses must implement forward method")
+        pass
 
 
 class EarlyFusionModel(MultimodalModel):
