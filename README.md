@@ -39,4 +39,5 @@ The experiment was performed with the following constant hyperparameters and set
 ->  Decided to use the full dataset
 - learning rate: 1e-4 (constant)
 - Optimizer: torch.optim Adam
+
 The training of the strided models logically took longer, as there were more parameters to learn (by around 1/3). The results in regards to loss and accuracy are mixed. For the intermediate fusion concatenation and addition model max pooling led to significantly better results. Meanwhile, intermediate fusion by multiplication strided convolutions performed slightly better and for late fusion it was mixed between accuracy and loss. Overall the differences for the latter 2 were quite small and likely not significant and robustly reproducible. The differences seen for the concatenation model were largest. That might be due to the concatenation model having more parameters anyway leading to the dataset size becoming insufficient to learn proper downsampling through strided convolutions in paralel.
