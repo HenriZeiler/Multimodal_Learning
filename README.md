@@ -3,11 +3,11 @@
 This study project evaluates different fusion approaches in the context of multimodal learning. Runs are tacked using weights&biases and visualizations are obtained by using fiftyone.
 
 Weights & Biases
-     username:      zeihenri
-     project links:
-     - https://wandb.ai/zeihenri-hasso-plattner-institut/fusion_architecture_comparison?nw=nwuserzeihenri
-     - https://wandb.ai/zeihenri-hasso-plattner-institut/maxpool_vs_strided_ablation?nw=nwuserzeihenri
-     - https://wandb.ai/zeihenri-hasso-plattner-institut/contrastive%20pre%20training?nw=nwuserzeihenri
+username:      zeihenri
+project links:
+- https://wandb.ai/zeihenri-hasso-plattner-institut/fusion_architecture_comparison?nw=nwuserzeihenri
+- https://wandb.ai/zeihenri-hasso-plattner-institut/maxpool_vs_strided_ablation?nw=nwuserzeihenri
+- https://wandb.ai/zeihenri-hasso-plattner-institut/contrastive%20pre%20training?nw=nwuserzeihenri
 
 
 ## fusion architecture experiment analysis
